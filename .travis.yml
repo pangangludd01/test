@@ -1,0 +1,11 @@
+if: branch =~ ^master$|^release|^development|^ci
+
+language: php
+php: 7.2
+
+install:
+  - php -v
+  - php -m
+
+script: skip
+
