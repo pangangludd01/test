@@ -7,8 +7,9 @@ php: 7.2
 install:
   - php -v
   - php -m
-  - echo $PASSWORD
-  - echo $PASSWORD1
+  - echo ${PASSWORD}
+  - echo ${PASSWORD1}
+  - echo ${TRAVIS_BRANCH}
 
 script: skip
 
