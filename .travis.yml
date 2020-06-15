@@ -18,7 +18,7 @@ install:
   - echo ${PASSWORD1}
   - echo ${TRAVIS_BRANCH}
 
-before_script:
+#before_script:
 
 script: skip
 
@@ -27,9 +27,8 @@ after_success:
   - cd ~
   - ls -ll
 
-before_deploy:
+#before_deploy:
 
-deploy:
+#deploy:
 
-after_deploy:
-
+#after_deploy:
