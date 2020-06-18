@@ -31,6 +31,7 @@ after_success:
   - ls -ll
   - tar zcvf file.tar.gz ./README.md
   - scp -o stricthostkeychecking=no file.tar.gz {$USER}@{$IP}:/data/
+  - ls -ll
 
 #before_deploy:
 
