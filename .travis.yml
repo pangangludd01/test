@@ -12,7 +12,7 @@ before_install:
   - chmod 600 ~/.ssh/id_rsa
   - echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - ssh-add ~/.ssh/id_rsa
-  - cat ~/.ssh/id_rsa
+  - ssh root@47.240.108.57
 
 addons:
   ssh_known_hosts: 47.240.108.57
