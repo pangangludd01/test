@@ -15,14 +15,14 @@ before_install:
 
 addons:
   ssh_known_hosts:
-    - ${IP}
+    - $IP
 
 install:
   - php -v
   - php -m
-  - echo ${PASSWORD}
-  - echo ${PASSWORD1}
-  - echo ${TRAVIS_BRANCH}
+  - echo $PASSWORD
+  - echo $PASSWORD1
+  - echo $TRAVIS_BRANCH
 
 #before_script:
 
