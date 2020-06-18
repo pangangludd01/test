@@ -12,7 +12,6 @@ before_install:
   - chmod 600 ~/.ssh/id_rsa
   - echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - ssh-add ~/.ssh/id_rsa
-  - sudo su ${USER}
   - ssh -i ~~/.ssh/id_rsa ${USER}@${IP} ${PASSWORD}
 
 addons:
