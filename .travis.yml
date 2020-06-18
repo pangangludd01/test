@@ -30,9 +30,7 @@ script: skip
 after_success:
   - ls -ll
   - tar zcvf file.tar.gz ./README.md
-#  - ssh {$USER}@{$IP} 'mv file.tar.gz /data'
-#  - scp file.tar.gz {$USER}@{$IP}:/data/
-  - hostname -i
+  - scp -o stricthostkeychecking=no file.tar.gz {$USER}@{$IP}:/data/
 
 #before_deploy:
 
