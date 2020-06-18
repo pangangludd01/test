@@ -31,7 +31,8 @@ after_success:
   - ls -ll
   - tar zcvf file.tar.gz ./README.md
 #  - ssh {$USER}@{$IP} 'mv file.tar.gz /data'
-  - scp file.tar.gz {$USER}@{$IP}:/data/
+#  - scp file.tar.gz {$USER}@{$IP}:/data/
+  - echo hostname -i
 
 #before_deploy:
 
