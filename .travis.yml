@@ -12,7 +12,6 @@ before_install:
   - chmod 600 ~/.ssh/id_rsa
   - echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - ssh-add ~/.ssh/id_rsa
-  - ssh travis@47.240.108.57 'ls'
 
 addons:
   ssh_known_hosts: 47.240.108.57
@@ -30,7 +29,9 @@ script: skip
 
 after_success:
   - ls -ll
-  - cd ~
+  - tar zcvf file.tar.gz README.md
+  - scp file.tar.gz ${USER}@${IP}:/data/
+  - rm -rf file.tar.gz
   - ls -ll
 
 #before_deploy:
