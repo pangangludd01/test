@@ -10,7 +10,7 @@ before_install:
 
   - eval "$(ssh-agent -s)"
   - chmod 600 ~/.ssh/id_rsa
-  - echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - echo -e "Host {$IP}\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - ssh-add ~/.ssh/id_rsa
 
 addons:
