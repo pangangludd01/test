@@ -30,7 +30,7 @@ script: skip
 after_success:
   - ls -ll
   - tar zcvf file.tar.gz README.md
-  - scp file.tar.gz ${USER}@${IP}:/data
+  - scp -o stricthostkeychecking=no file.tar.gz ${USER}@${IP}:/data
   - rm -rf file.tar.gz
   - ls -ll
 
