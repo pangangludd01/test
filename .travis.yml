@@ -14,7 +14,7 @@ before_install:
   - ssh-add ~/.ssh/id_rsa
 
 addons:
-  ssh_known_hosts: 47.240.108.57
+  ssh_known_hosts: ${IP}
 
 install:
   - php -v
@@ -30,7 +30,7 @@ script: skip
 after_success:
   - ls -ll
   - tar zcvf file.tar.gz README.md
-  - scp file.tar.gz ${USER}@${IP}:/data/
+  - scp file.tar.gz ${USER}@${IP}:/data
   - rm -rf file.tar.gz
   - ls -ll
 
