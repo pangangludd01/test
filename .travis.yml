@@ -48,15 +48,18 @@ after_success:
 #  - rm -rf file.tar.gz
 #  - ls -ll
 
-before_deploy:
-  - echo ${TRAVIS_BRANCH}
-  - echo ${TRAVIS_BUILD_NUMBER}
+before_deploy: |-
+  tag_build_num="0.0.${TRAVIS_BUILD_NUMBER}"
+  export IMAGE_NAM="${DOCKER_USERNAME}/test-${TRAVIS_BRANCH}:$tag_build_num"
+  docker build \
+  --tag ${IMAGE_NAM} \
+  .
 
 deploy:
   - provider: script
     script:
-      - echo ${TRAVIS_BRANCH}
-      - echo ${TRAVIS_BUILD_NUMBER}
+      - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+      - docker push ${IMAGE_NAM}
     skip_cleanup: true
     on:
       all_branches: true
