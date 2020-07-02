@@ -48,10 +48,8 @@ after_success:
 #  - rm -rf file.tar.gz
 #  - ls -ll
 
-before_deploy: |-
-  docker build \
-  -t ${DOCKER_USERNAME}/test-${TRAVIS_BRANCH}:0.0.${TRAVIS_BUILD_NUMBER} \
-  .
+before_deploy:
+  - docker build -t ${DOCKER_USERNAME}/test-${TRAVIS_BRANCH}:0.0.${TRAVIS_BUILD_NUMBER} .
 
 deploy:
   - provider: script
