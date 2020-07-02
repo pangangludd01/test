@@ -49,11 +49,11 @@ after_success:
 #  - ls -ll
 
 before_deploy: |-
-  export IMAGE_NAME="${DOCKER_USERNAME}/test-${TRAVIS_BRANCH}:0.0.${TRAVIS_BUILD_NUMBER}"
+    export IMAGE_NAME=${DOCKER_USERNAME}/test-${TRAVIS_BRANCH}:0.0.${TRAVIS_BUILD_NUMBER}
 
-  docker build \
-  -t ${IMAGE_NAME} \
-  .
+    docker build \
+    -t ${IMAGE_NAME} \
+    .
 
 deploy:
   - provider: script
