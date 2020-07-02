@@ -49,7 +49,7 @@ after_success:
 #  - ls -ll
 
 before_deploy:
-  docker build -t ${DOCKER_USERNAME}/test-${TRAVIS_BRANCH}:0.0.${TRAVIS_BUILD_NUMBER} .
+  - docker build -t ${DOCKER_USERNAME}/test-${TRAVIS_BRANCH}:0.0.${TRAVIS_BUILD_NUMBER} .
 
 deploy:
   - provider: script
