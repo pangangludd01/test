@@ -48,12 +48,13 @@ after_success:
 #  - rm -rf file.tar.gz
 #  - ls -ll
 
-before_deploy:
-  - export DOCKER_USERNAME_1=$DOCKER_USERNAME
-  - echo DOCKER_USERNAME_1
-  - docker build \
-  - --tag ${DOCKER_USERNAME_1}/test-master:0.0.1 \
-  - .
+before_deploy: |-
+  export DOCKER_USERNAME_1=${DOCKER_USERNAME}
+  echo DOCKER_USERNAME_1
+
+  docker build \
+  --tag ${DOCKER_USERNAME_1}/test-master:0.0.1 \
+  .
 
 deploy:
   - provider: script
