@@ -49,17 +49,15 @@ after_success:
 #  - ls -ll
 
 before_deploy: |-
-    export IMAGE_NAME=${DOCKER_USERNAME}/test-${TRAVIS_BRANCH}:0.0.${TRAVIS_BUILD_NUMBER}
-
-    docker build \
-    -t ${IMAGE_NAME} \
-    .
+  docker build \
+  -t ${DOCKER_USERNAME}/test-${TRAVIS_BRANCH}:0.0.${TRAVIS_BUILD_NUMBER} \
+  .
 
 deploy:
   - provider: script
     script:
       - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
-      - docker push ${IMAGE_NAME}
+      - docker push ${DOCKER_USERNAME}/test-${TRAVIS_BRANCH}:0.0.${TRAVIS_BUILD_NUMBER}
     skip_cleanup: true
     on:
       all_branches: true
