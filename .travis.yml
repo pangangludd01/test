@@ -49,9 +49,7 @@ after_success:
 #  - ls -ll
 
 before_deploy: |-
-  tag_build_num="0.0.${TRAVIS_BUILD_NUMBER}"
-  image_name="${DOCKER_USERNAME}/test-${TRAVIS_BRANCH}:$tag_build_num"
-  echo $tag_build_num
+  image_name="${DOCKER_USERNAME}/test-${TRAVIS_BRANCH}:0.0.${TRAVIS_BUILD_NUMBER}"
   echo $image_name
   docker build \
   --tag $image_name \
