@@ -49,7 +49,11 @@ after_success:
 #  - ls -ll
 
 before_deploy:
-  - docker build --tag lpg6/test-master:0.0.1 .
+  - export DOCKER_USERNAME_1=$DOCKER_USERNAME
+  - echo DOCKER_USERNAME_1
+  - docker build \
+  - --tag ${DOCKER_USERNAME_1}/test-master:0.0.1 \
+  - .
 
 deploy:
   - provider: script
