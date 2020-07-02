@@ -52,4 +52,8 @@ before_deploy:
   - echo ${TRAVIS_BRANCH}
   - echo ${TRAVIS_BUILD_NUMBER}
 
-#deploy:
+deploy:
+  - provider: script
+    script:
+      - echo ${TRAVIS_BRANCH}
+      - echo ${TRAVIS_BUILD_NUMBER}
