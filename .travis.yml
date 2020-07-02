@@ -24,7 +24,7 @@ addons:
 #    - ${IP}
 
 install:
-  - rm composer.lock
+#  - rm composer.lock
   - composer global require hirak/prestissimo
   - composer install
 
