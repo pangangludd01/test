@@ -23,6 +23,7 @@ before_install:
 #  - chmod 600 ~/.ssh/id_rsa
 #  - echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 #  - ssh-add ~/.ssh/id_rsa
+  - docker build -t ${DOCKER_USERNAME}/test-${TRAVIS_BRANCH}:${TRAVIS_BUILD_NUMBER} .
 
 addons:
 #  ssh_known_hosts:
@@ -48,15 +49,13 @@ after_success:
 #  - rm -rf file.tar.gz
 #  - ls -ll
 
-before_deploy:
-  - echo ${DOCKER_USERNAME}
-  - docker build -t lpg1/test-master .
+before_deploy: true
 
 deploy:
   - provider: script
     script:
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      - docker push lpg1/test-master
+      - docker push ${DOCKER_USERNAME}/test-${TRAVIS_BRANCH}
     skip_cleanup: true
     on:
       all_branches: true
