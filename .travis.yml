@@ -43,10 +43,14 @@ after_success:
 #  - rm -rf file.tar.gz
 #  - ls -ll
 
-before_deploy:
-  - echo ${TRAVIS_BRANCH}
-  - echo ${TRAVIS_BUILD_NUMBER}
+before_deploy: |-
+  echo ${TRAVIS_BRANCH}
+  echo ${TRAVIS_BUILD_NUMBER}
 
-deploy:
+deploy: |-
+  echo ${TRAVIS_BRANCH}
+  echo ${TRAVIS_BUILD_NUMBER}
 
-#after_deploy:
+after_deploy: |-
+  echo ${TRAVIS_BRANCH}
+  echo ${TRAVIS_BUILD_NUMBER}
