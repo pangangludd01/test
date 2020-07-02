@@ -30,7 +30,7 @@ RUN set -ex \
     && php -m \
     #  ---------- some config ----------
 #    && cd /etc/php7 \
-#    # - config PHP
+    # - config PHP
 #    && { \
 #        echo "upload_max_filesize=100M"; \
 #        echo "post_max_size=108M"; \
