@@ -27,7 +27,7 @@ RUN set -ex \
     && mv composer.phar /usr/local/bin/composer \
     # show php version and extensions
     && php -v \
-    && php -m \
+    && php -m
     #  ---------- some config ----------
 #    && cd /etc/php7 \
     # - config PHP
