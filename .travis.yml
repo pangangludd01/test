@@ -50,13 +50,13 @@ after_success:
 
 before_deploy:
   - echo ${DOCKER_USERNAME}
-  - docker build --tag lpg1/test-master:0.0.1 .
+  - docker build -t lpg1/test-master .
 
 deploy:
   - provider: script
     script:
-      - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
-      - docker push ${DOCKER_USERNAME}/test-${TRAVIS_BRANCH}:0.0.${TRAVIS_BUILD_NUMBER}
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - docker push lpg1/test-master
     skip_cleanup: true
     on:
       all_branches: true
