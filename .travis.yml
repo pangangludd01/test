@@ -50,10 +50,7 @@ after_success:
 
 before_deploy:
   - echo ${DOCKER_USERNAME}
-
-  - docker build \
-  - --tag lpg1/test-master:0.0.1 \
-  - .
+  - docker build --tag lpg1/test-master:0.0.1 .
 
 deploy:
   - provider: script
