@@ -53,9 +53,8 @@ before_deploy:
 
 deploy:
   - provider: script
-    script:
-      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      - docker push $DOCKER_USERNAME/test-$TRAVIS_BRANCH
+    script: >-
+      echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin && docker push $DOCKER_USERNAME/test-$TRAVIS_BRANCH
     skip_cleanup: true
     on:
       all_branches: true
